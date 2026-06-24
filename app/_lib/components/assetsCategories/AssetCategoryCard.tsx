@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import AssetDialog from "@/app/_lib/components/assetsCategories/AssetDialog";
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Asset, AssetType } from "@/lib/types/assets";
 
@@ -20,7 +20,12 @@ export default function AssetCategoryCard({
             <CardHeader>
                 <CardTitle>{label}</CardTitle>
                 <CardDescription>Sum: {totalAmount} {currency}</CardDescription>
-                <CardAction><Button>Add {label}</Button></CardAction>
+                <CardAction>
+                    <AssetDialog
+                        id={id}
+                        label={label}
+                    />
+                </CardAction>
             </CardHeader>
             <CardContent>
                 {

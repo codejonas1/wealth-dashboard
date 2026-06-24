@@ -19,9 +19,9 @@ export default function RootLayout({
 	return (
 		<html
 			lang="en"
-			className={cn("h-full", "antialiased", "font-sans", inter.variable)}
+			className={cn("min-h-full", "antialiased", "font-sans", "flex", inter.variable)}
 		>
-			<body className="min-h-full flex p-5">
+			<body className="flex-1 flex m-5">
 				<MainWrapper>
 					{children}
 				</MainWrapper>
