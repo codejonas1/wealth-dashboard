@@ -3,7 +3,7 @@ import { ASSETS_LIST } from "@/lib/types/assets";
 
 export default function AssetsCategories() {
     return (
-        <section className="flex flex-col md:flex-row gap-5">
+        <section className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {
                 ASSETS_LIST.map((val) => (
                     <AssetCategoryCard

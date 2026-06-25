@@ -1,4 +1,4 @@
-export interface AssetSearchResult {
+export interface StockSearchResult {
     symbol: string
     name: string
     currency: string

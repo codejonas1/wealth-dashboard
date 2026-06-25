@@ -1,38 +1,45 @@
-export type AssetType = 'ETF' | 'GOLD' | 'STOCK';
-
-export interface Asset {
-    name: string;
-    // todo add ticker and etc
+export interface Gold {
+    name: string
+    weight: number
 }
 
-export interface AssetCategory {
-    label: string;
-    list: Asset[];
-    totalAmount: number;
-    currency: string;
+export interface Stock {
+    symbol: string
+    name: string
+    currency: string
+    units: number
+    priceOfUnit: number | null
+    totalPrice: number | null
 }
 
-export type Portfolio = Record<AssetType, AssetCategory>;
-export const ASSETS: Portfolio = {
-    ETF: {
-        label: "ETFs",
-        list: [{ name: "MSCI ACWI" }],
-        totalAmount: 1000,
-        currency: "EUR"
+export interface AssetCategory<T> {
+    label: string
+    list: T[]
+    totalAmount: number
+    currency: string
+}
+
+export interface Assets {
+    STOCK: AssetCategory<Stock>
+    GOLD: AssetCategory<Gold>
+}
+
+export type AssetType = keyof Assets;
+
+export const ASSETS: Assets = {
+    STOCK: {
+        label: "Stocks & ETFs",
+        list: [],
+        totalAmount: 0,
+        currency: "USD"
     },
     GOLD: {
         label: "Gold",
-        list: [{ name: "PAMP 10g" }],
-        totalAmount: 1000,
-        currency: "EUR"
-    },
-    STOCK: {
-        label: "Stocks",
-        list: [{ name: "Apple" }],
-        totalAmount: 1000,
-        currency: "EUR"
-    },
-};
+        list: [],
+        totalAmount: 0,
+        currency: "USD"
+    }
+}
 
 export const ASSETS_LIST = Object.entries(ASSETS).map(([key, val]) => {
     return {

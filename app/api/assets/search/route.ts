@@ -1,4 +1,4 @@
-import { AssetSearchResult } from "@/lib/types/api/assets";
+import { StockSearchResult } from "@/lib/types/api/assets";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
@@ -9,7 +9,7 @@ export async function GET(req: NextRequest) {
     }
 
     const res = await fetch(
-        `https://financialmodelingprep.com/stable/search-symbol?query=${encodeURIComponent(query)}&limit=20`,
+        `https://financialmodelingprep.com/stable/search-symbol?query=${encodeURIComponent(query)}&limit=20&exchange=NASDAQ`,
         {
             headers: { "apikey": process.env.FMP_API_KEY! },
             next: { revalidate: 60 }
@@ -20,6 +20,6 @@ export async function GET(req: NextRequest) {
         return NextResponse.json({ error: "Upstream error" }, { status: 502 });
     }
 
-    const data: AssetSearchResult[] = await res.json();
+    const data: StockSearchResult[] = await res.json();
     return NextResponse.json({ results: data });
 }
