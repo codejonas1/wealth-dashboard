@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📈 Wealth Dashboard
 
-## Getting Started
+A high-performance, dark-themed financial analytics web application built with **Next.js 16+ (App Router)** and **TypeScript**. The application focuses on clean domain modeling for personal assets (ETFs, Stocks, and Gold) and real-time ticker lookup.
 
-First, run the development server:
+---
 
+## ✨ Core Features & Implementation
+
+- **Optimized Asset Search:** Custom-built debouncing mechanism (`useDebounce`) integrated with the external financial API to prevent API flooding and stay within rate limits during asset lookup.
+- **Premium Fintech UI:** Tailor-made, strict dark-mode interface built with **Tailwind CSS v4** and **shadcn/ui**, utilizing modern `oklch` color spaces for clean, financial-dashboard aesthetics.
+- **Strict Domain Modeling:** Strongly otyped asset structures (`GOLD`, `STOKC & ETF`) ensuring 100% type safety and zero use of `any` across the application.
+
+---
+
+## 🏗️ Architecture & Tech Stack
+
+- **Framework:** [Next.js](https://nextjs.org/) (App Router architecture)
+- **Language:** [TypeScript](https://www.typescriptlang.org/) (Strict mode, strong typing for financial models)
+- **Styling & UI:** [Tailwind CSS v4](https://tailwindcss.com/) & [shadcn/ui](https://ui.shadcn.com/)
+- **Data Sources:** [Financial Modeling Prep API](https://financialmodelingprep.com/developer/docs/) (Ticker search & asset discovery)
+- **Testing:** [Jest](https://jestjs.io/) & React Testing Library
+
+---
+
+## 🧪 Engineering Standards (Production-Ready)
+
+* **Feature-Driven Git Workflow:** Developed using isolated feature branches with structured Jira-style naming conventions (e.g., `feat/WD-2-api-integration`).
+* **Robust Unit Testing:** The custom `useDebounce` hook and core data structures are fully covered with **Jest** unit tests to guarantee reliability and prevent regressions.
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/codejonas1/wealth-dashboard
+cd wealth-dashboard
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Install dependencies
+```bash
+pnpm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Set up environment variables
+Create a .env file in the root directory:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+FMP_API_KEY=your-api-key
+```
 
-## Learn More
+### 4. Run the development server
+```bash
+pnpm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 4. Run unit tests
+```bash
+pnpm test
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
